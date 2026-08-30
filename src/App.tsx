@@ -11,28 +11,50 @@ function App() {
   const { transactions, isLoading, addTransaction, deleteTransaction } = useTransactions();
   const [activeTab, setActiveTab] = useState<'overview' | 'history' | 'monthly'>('overview');
 
-  const monthOptions = useMemo(() => {
-    const uniqueMonths = new Set(
-      transactions
-        .map((transaction) => format(parseISO(transaction.date), 'yyyy-MM'))
-        .filter(Boolean)
-    );
-
-    return Array.from(uniqueMonths).sort((a, b) => new Date(`${a}-01`).getTime() - new Date(`${b}-01`).getTime());
-  }, [transactions]);
-
+  const [selectedYear, setSelectedYear] = useState(() => new Date().getFullYear());
   const [selectedMonth, setSelectedMonth] = useState(() => format(new Date(), 'yyyy-MM'));
 
-  useEffect(() => {
-    if (monthOptions.length === 0) {
-      setSelectedMonth(format(new Date(), 'yyyy-MM'));
-      return;
+  const yearOptions = useMemo(() => {
+    const currentYear = new Date().getFullYear();
+
+    const years = transactions.map((transaction) => new Date(parseISO(transaction.date)).getFullYear());
+    const earliestYear = years.length > 0 ? Math.min(...years) : currentYear - 5;
+    const latestYear = years.length > 0 ? Math.max(...years) : currentYear + 1;
+
+    const startYear = Math.min(earliestYear, currentYear - 5);
+    const endYear = Math.max(latestYear, currentYear + 1);
+
+    const options: number[] = [];
+    for (let year = startYear; year <= endYear; year += 1) {
+      options.push(year);
     }
 
-    if (!monthOptions.includes(selectedMonth)) {
-      setSelectedMonth(monthOptions[monthOptions.length - 1]);
+    return options;
+  }, [transactions]);
+
+  const monthOptions = useMemo(() => {
+    const options: string[] = [];
+    const cursor = new Date(selectedYear, 0, 1);
+
+    for (let monthIndex = 0; monthIndex < 12; monthIndex += 1) {
+      options.push(format(cursor, 'yyyy-MM'));
+      cursor.setMonth(cursor.getMonth() + 1);
     }
-  }, [monthOptions, selectedMonth]);
+
+    return options;
+  }, [selectedYear]);
+
+  useEffect(() => {
+    if (!yearOptions.includes(selectedYear)) {
+      setSelectedYear(yearOptions[yearOptions.length - 1] ?? new Date().getFullYear());
+    }
+  }, [yearOptions, selectedYear]);
+
+  useEffect(() => {
+    if (!monthOptions.includes(selectedMonth)) {
+      setSelectedMonth(`${selectedYear}-01`);
+    }
+  }, [monthOptions, selectedMonth, selectedYear]);
 
   const monthDateRange = useMemo(() => {
     const currentMonth = new Date(`${selectedMonth}-01T00:00:00`);
@@ -118,24 +140,37 @@ function App() {
         {activeTab === 'monthly' && (
           <div className="tab-content">
             <div className="month-selector-card">
-              <label htmlFor="month-select">Select month</label>
-              <select
-                id="month-select"
-                value={selectedMonth}
-                onChange={(event) => setSelectedMonth(event.target.value)}
-              >
-                {monthOptions.length > 0 ? (
-                  monthOptions.map((month) => (
-                    <option key={month} value={month}>
-                      {format(new Date(`${month}-01T00:00:00`), 'MMMM yyyy')}
-                    </option>
-                  ))
-                ) : (
-                  <option value={selectedMonth}>
-                    {format(new Date(`${selectedMonth}-01T00:00:00`), 'MMMM yyyy')}
-                  </option>
-                )}
-              </select>
+              <div className="selector-row">
+                <div className="selector-group">
+                  <label htmlFor="year-select">Select year</label>
+                  <select
+                    id="year-select"
+                    value={selectedYear}
+                    onChange={(event) => setSelectedYear(Number(event.target.value))}
+                  >
+                    {yearOptions.map((year) => (
+                      <option key={year} value={year}>
+                        {year}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="selector-group">
+                  <label htmlFor="month-select">Select month</label>
+                  <select
+                    id="month-select"
+                    value={selectedMonth}
+                    onChange={(event) => setSelectedMonth(event.target.value)}
+                  >
+                    {monthOptions.map((month) => (
+                      <option key={month} value={month}>
+                        {format(new Date(`${month}-01T00:00:00`), 'MMMM yyyy')}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
             </div>
 
             <Summary transactions={monthlyTransactions} dateRange={monthDateRange} />

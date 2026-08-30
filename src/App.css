@@ -148,11 +148,23 @@ body {
 .month-selector-card {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.8rem;
   background: var(--card-bg);
   padding: 1rem;
   border-radius: 0.75rem;
   box-shadow: var(--shadow);
+}
+
+.selector-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.selector-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .month-selector-card label {
@@ -175,6 +187,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+@media (max-width: 640px) {
+  .selector-row {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Floating Action Button */
