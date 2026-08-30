@@ -1,0 +1,84 @@
+.charts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.charts-section {
+  background: var(--card-bg);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.charts-section h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  color: var(--text-primary);
+}
+
+.charts-section.full-width {
+  grid-column: 1 / -1;
+}
+
+.no-data {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 2rem 1rem;
+  font-size: 0.95rem;
+}
+
+/* Recharts customization */
+.recharts-text {
+  font-size: 0.85rem;
+  fill: var(--text-secondary);
+}
+
+.recharts-cartesian-axis-tick {
+  font-size: 0.8rem;
+}
+
+.recharts-default-tooltip {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 0.5rem !important;
+  box-shadow: var(--shadow) !important;
+}
+
+.recharts-tooltip-wrapper {
+  outline: none !important;
+}
+
+@media (max-width: 768px) {
+  .charts-container {
+    gap: 1.5rem;
+  }
+
+  .charts-section {
+    padding: 1.25rem;
+  }
+
+  .charts-section h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .recharts-text {
+    font-size: 0.75rem;
+  }
+
+  .recharts-cartesian-axis-tick {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .charts-section {
+    padding: 1rem;
+  }
+
+  .charts-section h3 {
+    font-size: 0.95rem;
+  }
+}

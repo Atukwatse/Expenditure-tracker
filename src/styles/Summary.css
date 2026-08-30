@@ -1,0 +1,93 @@
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.summary-card {
+  background: var(--card-bg);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.summary-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.card-icon {
+  color: var(--text-secondary);
+}
+
+.card-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.income-card {
+  border-left: 4px solid var(--success-color);
+}
+
+.income-card .card-icon {
+  color: var(--success-color);
+}
+
+.income-card .card-value {
+  color: var(--success-color);
+}
+
+.expense-card {
+  border-left: 4px solid var(--danger-color);
+}
+
+.expense-card .card-icon {
+  color: var(--danger-color);
+}
+
+.expense-card .card-value {
+  color: var(--danger-color);
+}
+
+.profit-card {
+  border-left: 4px solid var(--primary-color);
+}
+
+.profit-card .card-icon {
+  color: var(--primary-color);
+}
+
+.profit-card .card-value {
+  color: var(--primary-color);
+}
+
+.profit-card.negative .card-value {
+  color: var(--danger-color);
+}
+
+@media (max-width: 768px) {
+  .summary {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .card-value {
+    font-size: 1.5rem;
+  }
+}
