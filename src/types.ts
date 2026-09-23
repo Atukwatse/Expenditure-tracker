@@ -9,6 +9,7 @@ export interface Transaction {
   description: string;
   date: string; // ISO date string (YYYY-MM-DD)
   timestamp: number; // For sorting
+  recurring?: boolean;
 }
 
 export interface DailySummary {

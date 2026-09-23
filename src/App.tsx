@@ -4,7 +4,8 @@ import { useTransactions } from './hooks';
 import { TransactionForm } from './components/TransactionForm';
 import { Summary } from './components/Summary';
 import { TransactionList } from './components/TransactionList';
-import { BarChart3 } from 'lucide-react';
+import { AdvancedTools } from './components/AdvancedTools';
+import { WalletCards } from 'lucide-react';
 import './App.css';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
 
   const [selectedYear, setSelectedYear] = useState(() => new Date().getFullYear());
   const [selectedMonth, setSelectedMonth] = useState(() => format(new Date(), 'yyyy-MM'));
+  const [filteredTransactions, setFilteredTransactions] = useState(transactions);
 
   const yearOptions = useMemo(() => {
     const currentYear = new Date().getFullYear();
@@ -90,8 +92,12 @@ function App() {
       <header className="app-header">
         <div className="header-content">
           <div className="header-title">
-            <BarChart3 size={28} />
-            <h1>Expenditure Tracker</h1>
+            <div className="brand-mark" aria-hidden="true">
+              <WalletCards size={30} strokeWidth={2.25} />
+            </div>
+            <h1>
+              <span>Expenditure</span> Tracker
+            </h1>
           </div>
           <p className="subtitle">Monthly income, expenses, and profit tracker</p>
         </div>
@@ -121,6 +127,7 @@ function App() {
 
         {activeTab === 'overview' && (
           <div className="tab-content">
+            <AdvancedTools transactions={transactions} onFilteredTransactions={setFilteredTransactions} />
             <Summary transactions={transactions} />
             <h2>Recent Transactions</h2>
             <TransactionList
@@ -132,8 +139,9 @@ function App() {
 
         {activeTab === 'history' && (
           <div className="tab-content">
+            <AdvancedTools transactions={transactions} onFilteredTransactions={setFilteredTransactions} />
             <h2>All Transactions</h2>
-            <TransactionList transactions={transactions} onDelete={deleteTransaction} />
+            <TransactionList transactions={filteredTransactions} onDelete={deleteTransaction} />
           </div>
         )}
 

@@ -1,0 +1,16 @@
+.advanced-tools { background: var(--card-bg); border-radius: .9rem; padding: 1.25rem; box-shadow: var(--shadow); }
+.advanced-header { display:flex; justify-content:space-between; align-items:center; gap:1rem; margin-bottom:1rem; }
+.advanced-header h2 { margin: .15rem 0 0; font-size:1.3rem; }
+.eyebrow { color:var(--primary-color); font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+.export-btn { display:flex; align-items:center; gap:.4rem; border:0; border-radius:.55rem; padding:.65rem .8rem; color:#fff; background:var(--primary-color); cursor:pointer; }
+.tool-grid { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:1rem; }
+.tool-card { border:1px solid var(--border-color); border-radius:.7rem; padding:1rem; display:flex; flex-direction:column; gap:.7rem; }
+.tool-card-title { display:flex; align-items:center; gap:.45rem; color:var(--primary-color); }
+.tool-card input, .tool-card select { width:100%; padding:.65rem; border:1px solid var(--border-color); border-radius:.45rem; background:var(--light-bg); }
+.muted, .budget-row small, .bar-row small { color:var(--text-secondary); font-size:.78rem; }
+.insight-value { font-size:1.2rem; font-weight:700; }
+.danger-text { color:var(--danger-color); font-size:1.7rem; }.success-text { color:var(--success-color); font-size:1.7rem; }
+.budget-row { display:grid; grid-template-columns:1fr 7rem; gap:.4rem; align-items:center; }.budget-row span { text-transform:capitalize; display:block; font-weight:600; }.budget-row .progress { grid-column:1 / -1; }
+.progress, .bar { height:.45rem; overflow:hidden; border-radius:99px; background:var(--border-color); }.progress span, .bar span { display:block; height:100%; border-radius:inherit; background:var(--success-color); }.progress span.over-budget { background:var(--danger-color); }
+.bar-row { display:grid; grid-template-columns:5.5rem 1fr 5.5rem; align-items:center; gap:.5rem; font-size:.8rem; text-transform:capitalize; }.bar span { background:var(--primary-color); }
+@media (max-width: 700px) { .advanced-header { align-items:flex-start; flex-direction:column; }.tool-grid { grid-template-columns:1fr; } }

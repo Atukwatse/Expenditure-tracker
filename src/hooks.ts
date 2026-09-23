@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import type { Transaction, DailySummary, CategorySummary } from './types';
-import { startOfDay, endOfDay, isAfter, isBefore, parseISO } from 'date-fns';
+import { addMonths, format, startOfDay, endOfDay, isAfter, isBefore, parseISO } from 'date-fns';
 
 const STORAGE_KEY = 'expenditure_tracker_data';
 
@@ -29,13 +29,17 @@ export const useTransactions = () => {
   }, [transactions, isLoading]);
 
   const addTransaction = useCallback((transaction: Omit<Transaction, 'id' | 'timestamp'>) => {
-    const newTransaction: Transaction = {
-      ...transaction,
-      id: crypto.randomUUID(),
-      timestamp: Date.now(),
-    };
-    setTransactions((prev) => [newTransaction, ...prev]);
-    return newTransaction;
+    const entries: Transaction[] = Array.from({ length: transaction.recurring ? 6 : 1 }, (_, index) => {
+      const date = addMonths(parseISO(transaction.date), index);
+      return {
+        ...transaction,
+        date: format(date, 'yyyy-MM-dd'),
+        id: crypto.randomUUID(),
+        timestamp: Date.now() + index,
+      };
+    });
+    setTransactions((prev) => [...entries.reverse(), ...prev]);
+    return entries[entries.length - 1];
   }, []);
 
   const deleteTransaction = useCallback((id: string) => {
