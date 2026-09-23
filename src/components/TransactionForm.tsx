@@ -26,6 +26,7 @@ export const TransactionForm = ({ onSubmit }: TransactionFormProps) => {
   const [category, setCategory] = useState<Category>('other');
   const [description, setDescription] = useState('');
   const [date, setDate] = useState(format(new Date(), 'yyyy-MM-dd'));
+  const [recurring, setRecurring] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,6 +42,7 @@ export const TransactionForm = ({ onSubmit }: TransactionFormProps) => {
       category,
       description,
       date,
+      recurring,
     });
 
     // Reset form
@@ -49,6 +51,7 @@ export const TransactionForm = ({ onSubmit }: TransactionFormProps) => {
     setType('expense');
     setCategory('other');
     setDate(format(new Date(), 'yyyy-MM-dd'));
+    setRecurring(false);
     setIsOpen(false);
   };
 
@@ -148,6 +151,15 @@ export const TransactionForm = ({ onSubmit }: TransactionFormProps) => {
               required
             />
           </div>
+
+          <label className="checkbox-row">
+            <input
+              type="checkbox"
+              checked={recurring}
+              onChange={(event) => setRecurring(event.target.checked)}
+            />
+            Repeat monthly for the next 6 months
+          </label>
 
           {/* Submit Button */}
           <button type="submit" className="submit-btn">
