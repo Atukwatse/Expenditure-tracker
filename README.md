@@ -110,7 +110,7 @@ The app uses **UGX (Uganda Shilling)** formatting by default. To change:
 - GBP: `currency: 'GBP', locale: 'en-GB'`
 - KES: `currency: 'KES', locale: 'en-KE'`
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -132,7 +132,7 @@ src/
 └── index.css                   # Base styles
 ```
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **React 18**: UI framework
 - **TypeScript**: Type safety and better DX
@@ -149,7 +149,7 @@ src/
 - ✅ Safari (iOS 13+)
 - ✅ All modern mobile browsers
 
-## 📱 Mobile Optimization
+## Mobile Optimization
 
 - 🎯 Fully responsive design
 - 🖱️ Touch-optimized buttons
