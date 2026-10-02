@@ -1,8 +1,8 @@
-# 💰 Expenditure Tracker
+**💰 Expenditure Tracker**
 
 A mobile-friendly web app for tracking personal and business income and expenses. Perfect for small traders, boda riders, and anyone managing daily finances in Uganda.
 
-## ✨ Features
+**✨Features**
 
 ### 📊 Dashboard Overview
 - **Summary Cards**: Quick view of total income, expenses, and net profit/loss
