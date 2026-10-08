@@ -1,4 +1,4 @@
-**💰 Expenditure Tracker**
+** Expenditure Tracker**
 
 A mobile-friendly web app for tracking personal and business income and expenses. Perfect for small traders, boda riders, and anyone managing daily finances in Uganda.
 
@@ -18,7 +18,7 @@ Features
 - **Timestamps**: Auto-recorded with custom date selection
 - **Delete**: Remove transactions with confirmation
 
-### 📈 Analytics & Reports
+### Analytics & Reports
 - **Category Breakdown**: Pie charts showing where money goes
 - **Daily Trends**: 7-day bar chart comparing income vs expenses
 - **Net Profit/Loss**: Visualization of your financial health
@@ -33,7 +33,7 @@ Features
 - **Automatic Save**: Every transaction saves instantly
 - **Data Export-ready**: All data stored in JSON format
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Installation
 
@@ -71,7 +71,7 @@ npm run build
 # Serve the `dist` folder with any web server
 ```
 
-**Option 3: Mobile App (Optional)**
+**Option 3:Mobile App (Optional)**
 - Convert to PWA (Progressive Web App) - works offline
 - Wrap with Capacitor/Tauri for native iOS/Android app
 
