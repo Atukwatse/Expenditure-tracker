@@ -4,7 +4,7 @@ A mobile-friendly web app for tracking personal and business income and expenses
 
 Features
 
-### 📊 Dashboard Overview
+### Dashboard Overview
 - **Summary Cards**: Quick view of total income, expenses, and net profit/loss
 - **Recent Transactions**: Latest 10 transactions at a glance
 - **Analytics**: Visual charts showing spending patterns
