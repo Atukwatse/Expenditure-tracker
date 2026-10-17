@@ -9,7 +9,7 @@ Features
 - **Recent Transactions**: Latest 10 transactions at a glance
 - **Analytics**: Visual charts showing spending patterns
 
-### 💳 Transaction Management
+### Transaction Management
 - **Quick Add**: Floating action button (+) to add transactions instantly
 - **Transaction Types**: Income and Expense modes
 - **Categories**: 
@@ -23,7 +23,7 @@ Features
 - **Daily Trends**: 7-day bar chart comparing income vs expenses
 - **Net Profit/Loss**: Visualization of your financial health
 
-### 📝 Transaction History
+### Transaction History
 - **Full History**: Browse all transactions ever recorded
 - **Grouped by Date**: Organized chronologically
 - **Color-coded**: Easy identification by category and type
