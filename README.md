@@ -37,7 +37,7 @@ Features
 
 ### Installation
 
-```bash
+bash
 # Install dependencies
 npm install
 
@@ -58,7 +58,7 @@ npm run build
 npm run preview
 ```
 
-### Deployment Options
+## Deployment Options
 
 **Option 1: Static Hosting (Free)**
 - Netlify, Vercel, GitHub Pages
@@ -75,7 +75,7 @@ npm run build
 - Convert to PWA (Progressive Web App) - works offline
 - Wrap with Capacitor/Tauri for native iOS/Android app
 
-## 📖 How to Use
+##  How to Use
 
 ### Adding a Transaction
 
@@ -97,7 +97,7 @@ npm run build
 - Scroll through all past transactions
 - Delete transactions with trash icon
 
-## 💱 Currency & Formatting
+##  Currency & Formatting
 
 The app uses **UGX (Uganda Shilling)** formatting by default. To change:
 
