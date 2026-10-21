@@ -28,7 +28,7 @@ Features
 - **Grouped by Date**: Organized chronologically
 - **Color-coded**: Easy identification by category and type
 
-### 💾 Data Persistence
+### Data Persistence
 - **Offline Storage**: Uses browser localStorage - no cloud needed
 - **Automatic Save**: Every transaction saves instantly
 - **Data Export-ready**: All data stored in JSON format
