@@ -69,7 +69,7 @@ npm run preview
 # Build and serve
 npm run build
 # Serve the `dist` folder with any web server
-```
+
 
 **Option 3:Mobile App (Optional)**
 - Convert to PWA (Progressive Web App) - works offline
