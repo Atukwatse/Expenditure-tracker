@@ -2,7 +2,7 @@
 
 A mobile-friendly web app for tracking personal and business income and expenses. Perfect for small traders, boda riders, and anyone managing daily finances in Uganda.
 
-Features
+**Features**
 
 ### Dashboard Overview.
 - **Summary Cards**: Quick view of total income, expenses, and net profit/loss
@@ -17,8 +17,8 @@ Features
   - Expense: Transport, Rent, Food, Utilities, Other
 - **Timestamps**: Auto-recorded with custom date selection
 - **Delete**: Remove transactions with confirmation
-
-### Analytics & Reports
+**
+### Analytics & Reports**
 - **Category Breakdown**: Pie charts showing where money goes
 - **Daily Trends**: 7-day bar chart comparing income vs expenses
 - **Net Profit/Loss**: Visualization of your financial health
