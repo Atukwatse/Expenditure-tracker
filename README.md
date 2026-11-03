@@ -112,7 +112,7 @@ The app uses **UGX (Uganda Shilling)** formatting by default. To change:
 
 ## Project Structure
 
-```
+
 src/
 ├── components/                 # React components
 │   ├── TransactionForm.tsx     # Add transactions modal
