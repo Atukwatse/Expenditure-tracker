@@ -312,3 +312,4 @@ Contributions welcome! Areas for improvement:
 **Made with ❤️ for financial freedom**
 
 Track your money. Track your growth. 💪
+for a better future
